@@ -1,4 +1,4 @@
-package io.github.dudupuci.mscartoes.services;
+package io.github.dudupuci.mscartoes.application.services.interfaces;
 
 import io.github.dudupuci.mscartoes.domain.Cartao;
 
@@ -9,5 +9,5 @@ public interface CartaoServiceInterface {
     Cartao save(Cartao cartao);
     Optional<Cartao> findById(Long id);
     List<Cartao> findAll();
-    List<Cartao> findByRendaLessThanEqual(Double renda);
+    List<Cartao> findByRendaLessThanEqual(Long renda);
 }

@@ -1,6 +1,6 @@
 package io.github.dudupuci.mscartoes.application.dtos;
 
-import io.github.dudupuci.mscartoes.domain.Cartao;
+import io.github.dudupuci.mscartoes.domain.ClienteCartao;
 import io.github.dudupuci.mscartoes.domain.enums.BandeiraCartao;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,20 +11,16 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartaoDto {
-    private Long id;
+public class ClienteCartaoDto {
     private String nome;
     private BandeiraCartao bandeira;
-    private BigDecimal renda;
     private BigDecimal limite;
 
-    public Cartao toModel() {
-        return new Cartao(
-                id,
-                nome,
-                bandeira,
-                renda,
-                limite
+    public static ClienteCartaoDto from(ClienteCartao model) {
+        return new ClienteCartaoDto(
+                model.getCartao().getNome(),
+                model.getCartao().getBandeira(),
+                model.getLimite()
         );
     }
 }

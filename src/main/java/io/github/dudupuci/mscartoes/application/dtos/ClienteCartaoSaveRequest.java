@@ -1,0 +1,16 @@
+package io.github.dudupuci.mscartoes.application.dtos;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ClienteCartaoSaveRequest {
+    private String cpf;
+    private Long cartaoId;
+    private BigDecimal limite;
+}

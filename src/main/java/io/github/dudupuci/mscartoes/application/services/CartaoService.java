@@ -1,10 +1,12 @@
-package io.github.dudupuci.mscartoes.services;
+package io.github.dudupuci.mscartoes.application.services;
 
+import io.github.dudupuci.mscartoes.application.services.interfaces.CartaoServiceInterface;
 import io.github.dudupuci.mscartoes.domain.Cartao;
 import io.github.dudupuci.mscartoes.infra.repository.CartaoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,7 +37,8 @@ public class CartaoService implements CartaoServiceInterface {
     }
 
     @Override
-    public List<Cartao> findByRendaLessThanEqual(Double renda) {
-        return this.repository.findByRendaLessThanEqual(renda);
+    public List<Cartao> findByRendaLessThanEqual(Long renda) {
+        var rendaBigDecimal = BigDecimal.valueOf(renda);
+        return this.repository.findByRendaLessThanEqual(rendaBigDecimal);
     }
 }
